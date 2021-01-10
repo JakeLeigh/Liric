@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {SearchBar} from 'react-native-elements';
-import {SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar} from 'react-native';
+import {SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, TextInput} from 'react-native';
+import { Input } from 'react-native-elements';
 import SplashScreen from 'react-native-splash-screen';
 
 function App() {
@@ -15,11 +15,11 @@ function App() {
     <View>
       <StatusBar backgroundColor="#203059" barStyle="default" />
       <Text style={styles.testTitle}>Liric</Text>
-      <SearchBar
-        placeholder='Enter Song Lyric'
-        onChangeText={(e) => setLyric(e)}
+      <TextInput 
+      style = {styles.input}
+        onChangeText={lyric => {setLyric(lyric)}}
         value={lyric}
-      />
+        />
     </View>
   );
 }
@@ -30,6 +30,12 @@ const styles = StyleSheet.create({
     fontSize: 38,
     marginTop: 65,
   },
+  input: {
+    margin: 15,
+    height: 40,
+    borderColor: '#7a42f4',
+    borderWidth: 1
+ },
 });
 
 export default App;
